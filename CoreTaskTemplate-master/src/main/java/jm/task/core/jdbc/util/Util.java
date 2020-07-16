@@ -3,7 +3,6 @@ package jm.task.core.jdbc.util;
 import java.sql.*;
 
 public class Util {
-    // реализуйте настройку соеденения с БД
     private static final String DB_JDBC_DRIVER = "com.mysql.jdbc.Driver";
     private static final String DB_URL = "jdbc:mysql://localhost:3306/jmdao";
     private static final String DB_LOGIN = "root";
@@ -20,5 +19,4 @@ public class Util {
         }
         return connection;
     }
-
 }

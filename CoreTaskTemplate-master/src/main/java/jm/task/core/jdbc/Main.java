@@ -1,20 +1,16 @@
 /**
- * JDBC Driver (pom.xml):
+ * _JDBC Driver (pom.xml):
  * mysql-connector-java-5.1.49-bin.jar
  *
- * MySQL -> Class:
+ * _MySQL -> Class:
  * com.mysql.jdbc.Driver
  *
- * Database -> Advanced:
+ * _Database -> Advanced:
  * serverTimezone = UTC
  * verifyServerCertificate = FALSE
  * requireSSL = FALSE
  * sslMode = DISABLED
  * useSSL = FALSE
- *
- * Методы для открытия и закрытия соединения:
- * Util.runDB();
- * Util.closeDB();
  */
 package jm.task.core.jdbc;
 
@@ -27,7 +23,6 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        // реализуйте алгоритм здесь
         UserService userServiceImpl = new UserServiceImpl();
         List<User> users;
 
