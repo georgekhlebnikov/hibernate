@@ -37,7 +37,7 @@ public class Main {
             userServiceImpl.saveUser("Ivan", "Ivanov", (byte) 20);
             userServiceImpl.saveUser("Raaj", "Kumar", (byte) 22);
             userServiceImpl.saveUser("Sergey", "Smirnov", (byte) 25);
-            //userServiceImpl.removeUserById(3);
+            userServiceImpl.removeUserById(3);
             users = userServiceImpl.getAllUsers();
             for (User user : users) {
                 System.out.println(user.toString());
