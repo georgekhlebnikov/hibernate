@@ -1,6 +1,11 @@
 /**
+ * _"jdbc:mysql://localhost:3306/jmdao?useUnicode=true&serverTimezone=UTC&useSSL=true&verifyServerCertificate=false";
+ * _"com.mysql.cj.jdbc.Driver";
+ *
  * _JDBC Driver (pom.xml):
- * mysql-connector-java-5.1.49-bin.jar
+ * <dependency>
+ *   <version>8.0.16</version>
+ * </dependency>
  *
  * _MySQL -> Class:
  * com.mysql.jdbc.Driver
@@ -10,7 +15,7 @@
  * verifyServerCertificate = FALSE
  * requireSSL = FALSE
  * sslMode = DISABLED
- * useSSL = FALSE
+ * useSSL = TRUE
  */
 package jm.task.core.jdbc;
 
