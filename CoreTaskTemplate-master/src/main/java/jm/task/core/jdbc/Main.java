@@ -23,9 +23,8 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        UserService userServiceImpl = new UserServiceImpl();
         List<User> users;
-
+        UserService userServiceImpl = new UserServiceImpl();
         try {
             userServiceImpl.createUsersTable();
             userServiceImpl.saveUser("Zara", "Ali", (byte) 18);
