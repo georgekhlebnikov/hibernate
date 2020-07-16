@@ -10,6 +10,7 @@ public class Util {
 
     public Connection getConnection() {
         Connection connection = null;
+
         try {
             Class.forName(DB_JDBC_DRIVER);
             connection = DriverManager.getConnection(DB_URL, DB_LOGIN, DB_PASSWORD);
