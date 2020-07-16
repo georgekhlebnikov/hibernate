@@ -1,19 +1,20 @@
 package jm.task.core.jdbc.service;
 
 import jm.task.core.jdbc.model.User;
+import jm.task.core.jdbc.util.Util;
 
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static jm.task.core.jdbc.util.Util.*;
+public class UserServiceImpl extends Util implements UserService {
+    Connection connection = getConnection();
 
-public class UserServiceImpl implements UserService {
+    public void createUsersTable() throws SQLException {
+        //Connection connection = getConnection();
+        Statement statement;
+        statement = connection.createStatement();
 
-    public void createUsersTable() {
         String sql = "CREATE TABLE IF NOT EXISTS users " +
                 "(id INTEGER auto_increment, " +
                 " name VARCHAR(64), " +
@@ -25,20 +26,39 @@ public class UserServiceImpl implements UserService {
             System.out.println("Created table in database..");
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+            //if (connection != null) {
+            //    connection.close();
+            //}
         }
     }
 
-    public void dropUsersTable() {
+    public void dropUsersTable () throws SQLException {
+        //Connection connection = getConnection();
+        Statement statement;
+        statement = connection.createStatement();
+
         String sql = "DROP TABLE users";
         try {
             statement.executeUpdate(sql);
             System.out.println("Таблица \'users\' \u2014 удалена");
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+            if (connection != null) {
+                connection.close();
+            }
         }
     }
 
-    public void saveUser(String name, String lastName, byte age) {
+    public void saveUser(String name, String lastName, byte age) throws SQLException {
+        //Connection connection = getConnection();
         String sql = "INSERT INTO users(name, lastname, age) "
                 + "VALUES(?, ?, ?)";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);) {
@@ -49,10 +69,18 @@ public class UserServiceImpl implements UserService {
             System.out.println("User \'" + name + " " + lastName + "\' \u2014 добавлен");
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            //if (connection != null) {
+            //    connection.close();
+            //}
         }
     }
 
-    public void removeUserById(long id) {
+    public void removeUserById(long id) throws SQLException {
+        //Connection connection = getConnection();
+        Statement statement;
+        statement = connection.createStatement();
+
         String sql = "DELETE FROM users " +
                 "WHERE id = " + id;
         try {
@@ -60,10 +88,21 @@ public class UserServiceImpl implements UserService {
             System.out.println("User с ID=" + id + " \u2014 удален");
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+            //if (connection != null) {
+            //    connection.close();
+            //}
         }
     }
 
-    public List<User> getAllUsers() {
+    public List<User> getAllUsers() throws SQLException {
+        //Connection connection = getConnection();
+        Statement statement;
+        statement = connection.createStatement();
+
         String sql = "SELECT id, name, lastname, age FROM users";
         try {
             List<User> users = new ArrayList<>();
@@ -80,17 +119,35 @@ public class UserServiceImpl implements UserService {
             return users;
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+            //if (connection != null) {
+            //    connection.close();
+            //}
         }
         return null;
     }
 
-    public void cleanUsersTable() {
+    public void cleanUsersTable() throws SQLException {
+        //Connection connection = getConnection();
+        Statement statement;
+        statement = connection.createStatement();
+
         String sql = "TRUNCATE TABLE users";
         try {
             statement.executeUpdate(sql);
             System.out.println("Таблица \'users\' \u2014 очищена");
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+            //if (connection != null) {
+            //    connection.close();
+            //}
         }
     }
 }
