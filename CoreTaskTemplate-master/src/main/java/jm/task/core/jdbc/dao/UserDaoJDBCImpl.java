@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDaoJDBCImpl extends Util implements UserDao {
-    Connection connection = getConnection();
+    public final Connection connection = getConnection();
 
     public UserDaoJDBCImpl() {
     }
@@ -44,10 +44,10 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
         Statement statement;
         statement = connection.createStatement();
 
-        String sql = "DROP TABLE users";
+        String sql = "DROP TABLE IF EXISTS users";
         try {
             statement.executeUpdate(sql);
-            System.out.println("Таблица \'users\' \u2014 удалена");
+            System.out.println("Таблица 'users' \u2014 удалена");
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -69,7 +69,7 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
             preparedStatement.setString(2, lastName);
             preparedStatement.setInt(3, age);
             preparedStatement.executeUpdate();
-            System.out.println("User \'" + name + " " + lastName + "\' \u2014 добавлен");
+            System.out.println("User '" + name + " " + lastName + "' \u2014 добавлен");
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -141,7 +141,7 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
         String sql = "TRUNCATE TABLE users";
         try {
             statement.executeUpdate(sql);
-            System.out.println("Таблица \'users\' \u2014 очищена");
+            System.out.println("Таблица 'users' \u2014 очищена");
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
