@@ -26,9 +26,13 @@ import jm.task.core.jdbc.service.UserServiceImpl;
 import java.sql.SQLException;
 import java.util.List;
 
+//import jm.task.core.jdbc.util.HibernateUtil;
+//import org.hibernate.SessionFactory;
+
 public class Main {
 
     public static void main(String[] args) {
+        //SessionFactory sessionFactory = HibernateUtil.getSessionfactory();
         List<User> users;
         UserService userServiceImpl = new UserServiceImpl();
         try {
@@ -38,6 +42,7 @@ public class Main {
             userServiceImpl.saveUser("Raaj", "Kumar", (byte) 22);
             userServiceImpl.saveUser("Sergey", "Smirnov", (byte) 25);
             userServiceImpl.removeUserById(3);
+
             users = userServiceImpl.getAllUsers();
             for (User user : users) {
                 System.out.println(user.toString());

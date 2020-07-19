@@ -19,14 +19,14 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
         statement = connection.createStatement();
 
         String sql = "CREATE TABLE IF NOT EXISTS users " +
-                "(id INTEGER auto_increment, " +
+                "(id BIGINT auto_increment, " +
                 " name VARCHAR(64), " +
                 " lastname VARCHAR(64), " +
-                " age INTEGER(3), " +
+                " age TINYINT, " +
                 " PRIMARY KEY (id))";
         try {
             statement.executeUpdate(sql);
-            System.out.println("Created table in database..");
+            System.out.println("Created table 'users' in database..");
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
