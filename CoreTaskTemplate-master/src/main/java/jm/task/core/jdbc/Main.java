@@ -1,3 +1,4 @@
+
 /**
  * _"jdbc:mysql://localhost:3306/jmdao?useUnicode=true&serverTimezone=UTC&useSSL=true&verifyServerCertificate=false";
  * _"com.mysql.cj.jdbc.Driver";
@@ -17,6 +18,7 @@
  * sslMode = DISABLED
  * useSSL = TRUE
  */
+
 package jm.task.core.jdbc;
 
 import jm.task.core.jdbc.model.User;
