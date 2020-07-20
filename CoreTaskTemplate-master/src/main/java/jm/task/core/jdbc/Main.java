@@ -26,16 +26,14 @@ import jm.task.core.jdbc.service.UserServiceImpl;
 import java.sql.SQLException;
 import java.util.List;
 
-//import jm.task.core.jdbc.util.HibernateUtil;
 //import org.hibernate.SessionFactory;
 
 public class Main {
 
     public static void main(String[] args) {
-        //SessionFactory sessionFactory = HibernateUtil.getSessionfactory();
+        //SessionFactory sessionFactory = Util.getSessionfactory();
         List<User> users;
         UserService userServiceImpl = new UserServiceImpl();
-
         try {
             userServiceImpl.createUsersTable();
             userServiceImpl.saveUser("Zara", "Ali", (byte) 18);

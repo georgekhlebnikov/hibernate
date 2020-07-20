@@ -14,7 +14,7 @@
         <!-- DB schema will be updated if needed -->
         <property name="hibernate.hbm2ddl.auto">create</property>
 
-        <!-- <mapping resource="user.cfg.xml" />-->
+        <!-- <mapping resource="user.cfg.xml.(bak)" />-->
          <mapping class="jm.task.core.jdbc.model.User" />
 
      </session-factory>
