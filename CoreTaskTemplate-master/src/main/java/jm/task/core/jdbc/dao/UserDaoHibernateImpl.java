@@ -40,6 +40,7 @@ public class UserDaoHibernateImpl extends Util implements UserDao {
         session.getTransaction().commit();
         System.out.println("Таблица 'users' \u2014 удалена");
         session.close();
+        sessionFactory.close();
     }
 
     @Override
