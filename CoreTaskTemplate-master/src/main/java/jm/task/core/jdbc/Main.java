@@ -1,4 +1,3 @@
-
 /**
  * _"jdbc:mysql://localhost:3306/jmdao?useUnicode=true&serverTimezone=UTC&useSSL=true&verifyServerCertificate=false";
  * _"com.mysql.cj.jdbc.Driver";
@@ -18,7 +17,6 @@
  * sslMode = DISABLED
  * useSSL = TRUE
  */
-
 package jm.task.core.jdbc;
 
 import jm.task.core.jdbc.model.User;
@@ -37,6 +35,7 @@ public class Main {
         //SessionFactory sessionFactory = HibernateUtil.getSessionfactory();
         List<User> users;
         UserService userServiceImpl = new UserServiceImpl();
+
         try {
             userServiceImpl.createUsersTable();
             userServiceImpl.saveUser("Zara", "Ali", (byte) 18);
